@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import programas.rodrigo.prueba2.model.Usuario;
 
 public class RegistroActivity extends AppCompatActivity {
-    EditText txtnombre, txtmail, txtclave;
+    EditText txtnombre, txtmail, txtclave, txtfono;
 FirebaseAuth auth;
 
     @Override
@@ -28,12 +28,14 @@ FirebaseAuth auth;
         txtnombre = findViewById(R.id.txt_registro_nombre);
         txtmail = findViewById(R.id.txt_registro_email);
         txtclave = findViewById(R.id.txt_registro_clave);
+        txtfono = findViewById(R.id.txt_registro_telefono);
         auth = FirebaseAuth.getInstance();
     }
 
     public void Registrar(View view) {
         final String nombre = txtnombre.getText().toString();
         final String email = txtmail.getText().toString();
+        final  String fono = txtfono.getText().toString();
         String clave = txtclave.getText().toString();
         auth.createUserWithEmailAndPassword(email,clave)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -53,6 +55,7 @@ FirebaseAuth auth;
 
                         }else{
                             Toast.makeText(RegistroActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
 
                         }
 

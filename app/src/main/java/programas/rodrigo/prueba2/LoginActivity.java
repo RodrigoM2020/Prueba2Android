@@ -36,18 +36,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void acceder(View view) {
-        String email = txtemail.getText().toString();
-        String clave = txtclave.getText().toString();
+        final String email = txtemail.getText().toString();
+        final String clave = txtclave.getText().toString();
         auth.signInWithEmailAndPassword(email, clave)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Error de Acceso", Toast.LENGTH_LONG).show();
+
+                            Toast.makeText(LoginActivity.this, "No existe la cuenta", Toast.LENGTH_LONG).show();
 
                         }
                     }

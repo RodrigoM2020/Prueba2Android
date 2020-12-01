@@ -53,7 +53,7 @@ FirebaseAuth auth;
 
                     String uid = auth.getCurrentUser().getUid();
                    myRef.child(uid).push().setValue(denuncia);
-                   Toast.makeText(getActivity(), "Ok", Toast.LENGTH_LONG).show();
+                   Toast.makeText(getActivity(), "Denuncia Registrada", Toast.LENGTH_LONG).show();
 
                }
             }

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="16dp"
+    android:background="@drawable/fondo"
     tools:context=".RegistroActivity">
 
 
@@ -15,25 +16,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:textColor="#ffff"
         android:hint="nombre"
+        android:textColorHint="#fff"
         />
     <EditText
         android:id="@+id/txt_registro_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:textColor="#ffff"
         android:hint="Email"
+        android:textColorHint="#fff"
+        />
+    <EditText
+        android:id="@+id/txt_registro_telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:textColor="#ffff"
+        android:hint="Teléfono"
+        android:textColorHint="#fff"
         />
     <EditText
         android:id="@+id/txt_registro_clave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
+        android:textColor="#ffff"
         android:hint="Clave"
+        android:textColorHint="#fff"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#802962ff"
+        android:textColor="@color/cardview_light_background"
         android:text="Registrar"
         android:onClick="Registrar"
         />

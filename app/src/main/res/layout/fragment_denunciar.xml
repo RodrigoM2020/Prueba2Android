@@ -6,24 +6,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="16dp"
+    android:background="@drawable/fondo"
     tools:context=".ui.main.DenunciarFragment">
 
     <EditText
         android:id="@+id/txt_denunciar_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#ffff"
         android:hint="Descripción de la Denuncia"
         />
     <EditText
         android:id="@+id/txt_denunciar_direccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#ffff"
         android:hint="Dirección del Usuario"
         />
     <Button
         android:id="@+id/btn_denunciar_guardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#802962ff"
+        android:textColor="@color/cardview_light_background"
         android:text="Crear Denuncia"/>
 
 

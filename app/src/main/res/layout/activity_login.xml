@@ -6,14 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    android:orientation="vertical">
-    tools:context=".LoginActivity">
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+     tools:context=".LoginActivity">
 
     <EditText
         android:id="@+id/txt_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:textColor="#fafafa"
         android:hint="email" />
 
     <EditText
@@ -21,21 +23,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
+        android:textColor="#ffff"
         android:layout_below="@id/txt_login_email"
         android:hint="clave" />
 
     <Button
         android:id="@+id/txt_boton_acceder"
+        android:background="#802962ff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_login_pass"
+        android:textColor="@color/cardview_light_background"
         android:text="Acceder"
         android:onClick="acceder"
         />
     <Button
         android:id="@+id/txt_boton_registrar"
+        android:background="#802962ff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/cardview_light_background"
         android:layout_below="@id/txt_boton_acceder"
         android:text="Registrar"
         android:onClick="cargarRegistro"
