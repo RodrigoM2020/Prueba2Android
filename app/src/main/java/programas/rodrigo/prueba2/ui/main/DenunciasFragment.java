@@ -29,21 +29,56 @@ import programas.rodrigo.prueba2.model.Denuncia;
 
 
 public class DenunciasFragment extends Fragment {
-TextView txt;
-FirebaseAuth auth;
+    RecyclerView denuncias_rc;
+    FirebaseAuth auth;
+    List<Denuncia> lista;
 
-       @Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_denuncias, container, false);
 
-        txt = view.findViewById(R.id.txt_denuncias_denuncias);
+        denuncias_rc=view.findViewById(R.id.denuncias_rc);
+
+
+        lista = new ArrayList<>();
+
         auth = FirebaseAuth.getInstance();
         String uid = auth.getCurrentUser().getUid();
-           FirebaseDatabase database = FirebaseDatabase.getInstance();
-           DatabaseReference myRef = database.getReference("message");
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("denuncias");
 
-           return view;
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    lista.clear();
+                    // txt.setText("");
+            for(DataSnapshot padre : dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : padre.getChildren()) {
+                    Denuncia denuncia = ds.getValue(Denuncia.class);
+                    denuncia.setId(ds.getKey());
+                    lista.add(denuncia);
+                }
+            }
+                    DenunciaAdapter adapter = new DenunciaAdapter(getActivity(),R.layout.item_layout,lista);
+                    LinearLayoutManager lm = new LinearLayoutManager(getActivity());
+                    lm.setOrientation(RecyclerView.VERTICAL);
+                    denuncias_rc.setLayoutManager(lm);
+                    denuncias_rc.setAdapter(adapter);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
+
+        return view;
     }
-
         }
